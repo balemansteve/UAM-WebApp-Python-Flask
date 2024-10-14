@@ -1,13 +1,11 @@
-# -*- coding: iso-8859-15 -*-
+#!/usr/bin/env python3
+
 
 import sys
 import json
 
-from flask import Flask
-from flask import request
-from flask import render_template, url_for
+from flask import Flask, request, render_template, url_for, session
 app = Flask(__name__)
-
 
 @app.route('/', methods=['GET'])
 def index():
@@ -69,26 +67,26 @@ def process_error(message, next_page):
     :return:
     """
     return render_template("error.html", error_message=message, next=next_page)
-
+'''
 # open json and create an instance that is storage in the variable data as a dictionary
-with open("\data\users.json", 'r') as f:
+with open("Data/users.json", "r") as f:
     data = json.load(f)
 
 # write data in json file
 datos = {
     "user_name": "James",
-    "password": ?007?,
-    "messages": [(1532648502.113984, ?mensaje 1?), (1532648642.729385,     ?mensaje 1?)],
+    "password": "007",
+    "messages": [(1532648502.113984, "mensaje 1"), (1532648642.729385,     "mensaje 1")],
     "email": session['email'],
     "friends": session['friends']
 }
 
-with open("james.bond@mi6.uk", 'w') as f:
+with open("data/james.bond@mi6.uk", 'w') as f:
     json.dump(datos, f)
-
+'''
 # start the server with the 'run()' method
 if __name__ == '__main__':
     if sys.platform == 'darwin':  # different port if running on MacOsX
         app.run(debug=True, port=8080)
     else:
-        app.run(debug=True, port=80)
+        app.run(debug=True, port=5000)
